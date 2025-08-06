@@ -1,6 +1,19 @@
 import { Agent } from '@mastra/core/agent';
 import { google } from '@ai-sdk/google';
-
+import {
+  uploadFileTool,
+  executeFFmpegCommandTool,
+  trimVideoTool,
+  changeFrameRateTool,
+  convertToGifWebpTool,
+  analyzeMediaTool,
+  batchProcessTool,
+  extractBitstreamTool,
+  changeSpeedTool,
+  generateThumbnailsTool,
+  resizeVideoTool,
+  joinFilesTool
+} from '../tools/ffmpegTools';
 
 
 export const ffmpegAgent = new Agent({
@@ -44,5 +57,18 @@ Always return structured responses with:
 
 Use all available tools systematically and provide comprehensive media processing solutions.`,
   model: google('gemini-2.5-pro'),
-  tools: {},
+  tools: {
+    uploadFileTool,
+    executeFFmpegCommandTool,
+    trimVideoTool,
+    changeFrameRateTool,
+    convertToGifWebpTool,
+    analyzeMediaTool,
+    batchProcessTool,
+    extractBitstreamTool,
+    changeSpeedTool,
+    generateThumbnailsTool,
+    resizeVideoTool,
+    joinFilesTool
+  },
 }); 
